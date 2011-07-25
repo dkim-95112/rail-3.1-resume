@@ -4,3 +4,6 @@ log/*.log
 tmp/
 .sass-cache/
 *~
+*.bak
+foo
+bar

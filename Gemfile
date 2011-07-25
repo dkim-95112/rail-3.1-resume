@@ -29,3 +29,5 @@ group :test do
 end
 
 gem 'therubyracer', '>= 0.8.2'
+gem 'haml'
+gem 'thin'
