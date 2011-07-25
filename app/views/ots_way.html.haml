@@ -1,0 +1,35 @@
+=link_to_function "[ interactive quartz composition ]", "$('#my-interactive-quartz-composition').toggle()"
+%section#my-interactive-quartz-composition(style="margin-left:5em")
+  %h2="try it!"
+  %p
+    "Apologies: This one is only available on Mac OS X 10.4 or later, with Safari browser."
+  %div(border="1px solid #000")
+    %embed#myComposition( type="application/x-quartzcomposer" src="/my%20digital%20lexicon.qtz" opaque="true" width="640" height="256")/
+
+=link_to_function "[ quicktime movie ]", "$('#my-quicktime-movie').toggle()"
+%section#my-quicktime-movie(style="margin-left:8em")
+  =javascript_include_tag "http://www.apple.com/library/quicktime/scripts/ac_quicktime.js"
+  =javascript_include_tag "http://www.apple.com/library/quicktime/scripts/qtp_library.js"
+  =stylesheet_link_tag "http://www.apple.com/library/quicktime/stylesheets/qtp_library.css"
+  :javascript
+    //QT_WriteOBJECT('/my%20automator.mov', '320', '256','','controller','true','autoplay','true','showlogo','true','cache','false');
+    QT_WritePoster_XHTML('Click to Play', '/my%20automator-poster.png',
+      '/my%20automator.mov',
+      '640', '256', '',
+      'controller', 'true',
+      'autoplay', 'true',
+      'emb#bgcolor', 'black',
+      'scale', 'aspect',
+      'align', 'middle');
+
+=link_to_function "[ still images ]", "$('#my-still-images').toggle()"
+%section#my-still-images
+  %image(src="/ots%20way.0-9.png")/
+  %image(src="/ots%20way.u-z.png")/
+  %image(src="/ots%20way.k-t.png")/
+  %image(src="/ots%20way.a-j.png")/
+
+=link_to_function "[ Quartz Composer Snapshots ]", "$('#my-quartz-composer-snapshots').toggle()"
+%section#my-quartz-composer-snapshots(style="margin-left:9em")
+  %image(src="/qc%20key%20queues.png")/
+

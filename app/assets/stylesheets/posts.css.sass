@@ -1,0 +1,151 @@
+$deepest_color: #123
+$deep_color: #456
+$medium_color: #888
+$high_color: #cde
+$highest_color: #fff
+
+$viewport_width: 320px
+$viewport_height: 200px
+
+$line_height: 20px
+$font_size: 14px
+
+$big_margin: 80px
+$little_margin: $line_height
+
+@mixin my-rounded-corners($radius: $line_height)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  -khtml-border-radius: $radius
+  border-radius: $radius
+
+@mixin my-box-shadow($shadow_color: $deepest_color)
+  -webkit-box-shadow: 0px 0px 5px $shadow_color //Safari and Chrome
+  box-shadow: 0px 0px 10px $shadow_color
+
+@mixin my-gradient
+  background: #e6edf2 /* Old browsers */
+  background: -moz-linear-gradient(top, #e6edf2 0%, #add2e5 50%, #8dc4df 51%, #d1e9f5 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6edf2), color-stop(50%,#add2e5), color-stop(51%,#8dc4df), color-stop(100%,#d1e9f5)) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e6edf2 0%,#add2e5 50%,#8dc4df 51%,#d1e9f5 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e6edf2 0%,#add2e5 50%,#8dc4df 51%,#d1e9f5 100%) /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #e6edf2 0%,#add2e5 50%,#8dc4df 51%,#d1e9f5 100%) /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6edf2', endColorstr='#d1e9f5',GradientType=0 ) /* IE6-9 */
+  background: linear-gradient(top, #e6edf2 0%,#add2e5 50%,#8dc4df 51%,#d1e9f5 100%) /* W3C */
+
+body
+  background:
+    color: grey
+  margin: 3em
+  padding:
+    top: 1em
+    bottom: 1em
+    left: 3em
+    right: 3em
+  +my-box-shadow
+  +my-rounded-corners
+
+  line
+    height: $line_height
+
+  font-family: Arial, Sans-serif
+ 
+  header
+    a
+      display: inline
+
+  #my-viewport
+    background-color: $medium_color
+    width: $viewport_width
+    height: $viewport_height
+    margin:
+      top: $big_margin
+      left: $big_margin
+    padding: $little_margin
+    overflow-x: hidden
+    overflow-y: scroll
+    +my-rounded-corners(2* $line_height)
+
+  footer
+    a
+      display: inline
+
+  #my-post-index
+    +my-rounded-corners($line_height)
+
+  .post
+    padding: $line_height /2
+    margin-bottom: $line_height
+    &:hover
+      background-color: #eee
+      border-style: outset
+      border-width: 1px
+      border-color: #aaa
+    +my-gradient
+    +my-rounded-corners($line_height)
+
+section#my-still-images
+  margin-left: 6em
+  img
+    width: 620px
+    height: 256px
+
+a
+  display: block
+  text-decoration: none
+  color: blue
+  &:hover
+    text-decoration: underline
+  &:visited
+
+#my-color-test
+  .deepest_color
+    background-color: $deepest_color
+  .deep_color
+    background-color: $deep_color
+  .medium_color
+    background-color: $medium_color
+  .high_color
+    background-color: $high_color
+  .highest_color
+    background-color: $highest_color
+
+//p, ol, ul, td
+
+pre
+  background-color: #ddd
+
+div
+  &.field, &.actions
+    margin-bottom: 10px
+
+#notice
+  color: green
+
+.field_with_errors
+  padding: 2px
+  background-color: red
+  display: table
+
+#error_explanation
+  width: 450px
+  padding: 7px
+    bottom: 0
+  border: 2px solid red
+  margin-bottom: 20px
+  background-color: #f0f0f0
+  h2
+    text-align: left
+    font:
+      weight: bold
+      size: 12px
+    padding: 5px 5px 5px 15px
+    margin: -7px
+      bottom: 0px
+    background-color: #c00
+    color: #fff
+  ul li
+    font-size: 12px
+    list-style: square
+
+    

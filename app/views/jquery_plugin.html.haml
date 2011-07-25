@@ -1,0 +1,37 @@
+%style
+  :sass
+    #my-widget-panel
+      margin-bottom: 5em
+    #my-widget-source
+      margin-left: 5em
+    
+=link_to_function "[ widget panel ]", "$('#my-widget-panel').toggle()"
+#my-widget-panel
+  :javascript
+    $.ajax({
+      url: "/assets/jquery.hover_panel.js",
+      dataType: "script",
+      success: function(data, textStatus, jqXHR){
+        options = {
+          image_srcs: (function(){
+            var r = [];
+            for(var i = 0; i < 17; i++){
+              r.push('/images/images-' + i + '.jpeg');
+            }
+            return r;
+          })(),
+          animate: {
+            over:{top:166},
+            left:{top:266},
+            right:{top:266},
+            other:{top:0},
+          }
+        };
+        $('#my-hover-panel').hover_panel(options);  // set it up
+      }
+    });
+  #my-hover-panel
+
+=link_to_function "[ widget source ]", "$('#my-widget-source').toggle()"
+#my-widget-source
+  %pre= File.read("app/assets/javascripts/jquery.hover_panel.js")

@@ -1,0 +1,34 @@
+!!! XML
+!!!
+%html
+  %head
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}/
+    %title#my-title= "pano group"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "http://code.jquery.com/jquery-latest.js"
+    = csrf_meta_tag
+    :javascript
+      $(document).ready(function(){
+        (function loop(){
+          setTimeout(function(){
+            $("#my-clock").html((new Date).toLocaleString());
+            loop();
+          }, 1000);
+        })();
+      });
+
+    %header
+      #my-clock= "my-clock"
+      #notice= flash[:notice]
+      #my-color-test
+        .deepest_color="deepest"
+        .deep_color="deep"
+        .medium_color="medium"
+        .high_color="high"
+        .highest_color="highest"
+
+    #my-application-layout
+      = yield
+
+    %footer
+      Powered by opensource.

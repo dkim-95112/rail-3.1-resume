@@ -1,0 +1,5 @@
+%a(href= "#{current_page?(post) ? posts_path : url_for(post)}")
+  %div.back= "#{current_page?(post) ? '[ Back ]' : ''}"
+  %div.post(id= "post_#{post.id}")
+    %h1.title= post.title
+    .body= simple_format h(post.body)

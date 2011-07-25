@@ -1,0 +1,13 @@
+@mixin my-rounded-corners($radius: $line_height)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  -khtml-border-radius: $radius
+  border-radius: $radius
+
+@mixin my-box-shadow($shadow_color: $deepest_color)
+  -webkit-box-shadow: 4px 4px 7px $shadow_color //Safari and Chrome
+  //box-shadow: 5px 5px 5px $highest_color
+
+@mixin viewport($width, $height)
+  width: $width
+  height: $height
