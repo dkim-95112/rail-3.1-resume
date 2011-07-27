@@ -15,9 +15,10 @@
       %p#my-clock= raw "&nbsp;"
       #notice=flash[:notice]
 
-    -#my-viewport
-    = yield
+    %div(id="container" width="500px")
+      = yield
 
-    %footer
-      Powered by open-source rail-3.1, ruby 1.9.2, haml, sass, coffee-script.
-      =link_to "[ Source fork at GitHub ]", "https://github.com/dkim-95112/rail-3.1-resume"
+      %footer
+        Powered by open-source rail-3.1, ruby 1.9.2, haml, sass, coffee-script.
+        %nav
+          =link_to "[ Source fork at GitHub ]", "https://github.com/dkim-95112/rail-3.1-resume"

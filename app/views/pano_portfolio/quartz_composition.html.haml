@@ -1,0 +1,45 @@
+%style
+  :sass
+    #my-download a
+      background-color: #fa0    
+    #my-quicktime-movie
+      margin-left: auto
+      margin-right: auto
+
+%section#my-interactive-quartz-composition
+  #my-download
+    %a(href="/my%20digital%20lexicon.qtz")="Download"
+  %p="Requires MacOSX 10.4 or later"
+
+=link_to_function "[ quicktime movie ]", "$('#my-quicktime-movie').toggle()"
+%section#my-quicktime-movie
+  =javascript_include_tag "http://www.apple.com/library/quicktime/scripts/ac_quicktime.js"
+  =javascript_include_tag "http://www.apple.com/library/quicktime/scripts/qtp_library.js"
+  =stylesheet_link_tag "http://www.apple.com/library/quicktime/stylesheets/qtp_library.css"
+  :javascript
+    //QT_WriteOBJECT('/my%20automator.mov', '320', '256','','controller','true','autoplay','true','showlogo','true','cache','false');
+    QT_WritePoster_XHTML('Click to Play', '/my%20automator-poster.png',
+      '/my%20automator.mov',
+      '620', '256', '',
+      'controller', 'true',
+      'autoplay', 'true',
+      'emb#bgcolor', 'black',
+      'scale', 'aspect',
+      'align', 'middle');
+
+%style
+  :sass
+    #my-still-images img
+      width: 620px
+      height: 256px
+=link_to_function "[ still images ]", "$('#my-still-images').toggle()"
+%section#my-still-images
+  %image(src="/ots%20way.0-9.png")/
+  %image(src="/ots%20way.u-z.png")/
+  %image(src="/ots%20way.k-t.png")/
+  %image(src="/ots%20way.a-j.png")/
+
+=link_to_function "[ Quartz Composer Snapshots ]", "$('#my-quartz-composer-snapshots').toggle()"
+%section#my-quartz-composer-snapshots(style="overflow-x:scroll")
+  %image(src="/qc%20key%20queues.png")/
+

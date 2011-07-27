@@ -28,7 +28,13 @@ group :test do
   gem 'turn', :require => false
 end
 
+# javascript runtime engine
 gem 'therubyracer', '>= 0.8.2'
+
 gem 'haml'
+
+# thin web-server
 gem 'thin'
+
+# postgresql
 gem 'pg'

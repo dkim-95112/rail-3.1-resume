@@ -1,0 +1,30 @@
+=link_to_function "[ widget panel ]", "$('#my-widget-panel').toggle()"
+#my-widget-panel(style="margin-bottom: 5em")
+  :javascript
+    $.ajax({
+      url: "/assets/jquery.hover_panel.js",
+      dataType: "script",
+      success: function(data, textStatus, jqXHR){
+        options = {
+          image_srcs: (function(){
+            var r = [];
+            for(var i = 0; i < 17; i++){
+              r.push('/images/images-' + i + '.jpeg');
+            }
+            return r;
+          })(),
+          animate: {
+            over:{top:166},
+            left:{top:266},
+            right:{top:266},
+            other:{top:0},
+          }
+        };
+        $('#my-hover-panel').hover_panel(options);  // set it up
+      }
+    });
+  #my-hover-panel
+
+=link_to_function "[ widget source ]", "$('#my-widget-source').toggle()"
+#my-widget-source(style="margin-left:3em;overflow:scroll;height:640px")
+  %pre= File.read("app/assets/javascripts/jquery.hover_panel.js")

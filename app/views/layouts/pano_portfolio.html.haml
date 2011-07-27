@@ -1,0 +1,48 @@
+!!! XML
+!!!
+%html
+  %head
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
+    %title#my-title
+      My Portfolio
+    =javascript_include_tag "application"
+    =csrf_meta_tag
+    =favicon_link_tag 'rails.png'
+    %style
+      :sass
+        #my-container
+          margin-left: auto
+          margin-right: auto
+          width: 640px
+          background-color: #eee
+          header
+            background-color: #36c
+            height: 138px
+            h1
+              color: white
+            nav
+              a
+                background-color: #fa0
+                &:hover
+                  background-color: #fb0
+          footer
+            background-color: #fa0
+  %body
+    %div#my-container
+      %header
+        #my-clock= raw "&nbsp;"
+        #notice=flash[:notice]
+        %h1= "My Portfolio"
+        %nav
+          =link_to "jQuery Plugin", :action => "jquery_plugin"
+          =link_to "Quartz Composition", :action => "quartz_composition"
+          =link_to "bash_script", :action => "bash_script"
+          =link_to "WebGL Sample", :action => "webgl_sample"
+
+      %div(id="container" width="500px")
+        = yield
+
+        %footer
+          This site is rails 3.1, ruby 1.9.2, haml, sass, coffee-script.
+          %nav
+            =link_to "[ Source fork at GitHub ]", "https://github.com/dkim-95112/rail-3.1-resume"

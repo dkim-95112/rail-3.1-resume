@@ -1,0 +1,15 @@
+=link_to_function "[ friend0 ]", "$('#my-friend0').toggle()"
+%section#my-friend0(style="margin-left:2em")
+  %pre= File.read('./public/friend0')
+
+=link_to_function "[ not_friend0 ]", "$('#my-not-friend0').toggle()"
+%section#my-not-friend0
+  %a(style="margin-left:4em" href="/not_friend0")="'not_friend0' - 3 Meg data file"
+
+=link_to_function "[ 'leven_ctl.bash' source ]", "$('#my-leven-ctl-source').toggle()"
+%section#my-leven-ctl-source(style="width:620px;overflow-x:scroll")
+  %pre(style="margin-left:4em")= File.read('./public/leven_ctl.bash')
+
+=link_to_function "[ 'leven.bash' source ]", "$('#my-leven-source').toggle()"
+%section#my-leven-source
+  %pre(style="margin-left:6em")= File.read('./public/leven.bash')
